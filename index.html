@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foodchemy</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="panel panel-left">
+      <div class="panel-header">
+        <p class="eyebrow">Emoji Alchemy</p>
+        <h1>Foodchemy</h1>
+        <p class="panel-copy">點一下元素快速生成，或直接把元素拖進合成區，再拖曳重合來做新食物。</p>
+      </div>
+      <section>
+        <h2>已解鎖元素</h2>
+        <div id="element-grid" class="element-grid" aria-label="已解鎖元素清單"></div>
+      </section>
+    </aside>
+
+    <main class="play-column">
+      <section class="playfield-card">
+        <div class="playfield-header">
+          <div>
+            <p class="eyebrow">Workbench</p>
+            <h2>合成區</h2>
+          </div>
+          <p class="playfield-copy">把材料拖在一起，放開時就會檢查配方。</p>
+        </div>
+        <div id="playfield" class="playfield" aria-label="遊戲合成區">
+          <div class="playfield-glow"></div>
+        </div>
+      </section>
+    </main>
+
+    <aside class="panel panel-right">
+      <section class="status-card">
+        <p class="eyebrow">Progress</p>
+        <h2 id="discovered-count">已發現：0 / 0</h2>
+        <div class="button-stack">
+          <button id="reset-board" type="button">重置場上元素</button>
+          <button id="new-game" type="button">新遊戲</button>
+        </div>
+      </section>
+
+      <section class="status-card">
+        <p class="eyebrow">Message</p>
+        <h2>訊息</h2>
+        <p id="message" class="message-box">把 emoji 拖進中央區塊，讓配方材料重合來合成新食物。</p>
+      </section>
+
+      <section class="status-card">
+        <p class="eyebrow">Developer</p>
+        <h2>開發者模式</h2>
+        <label class="toggle-row" for="developer-mode">
+          <input id="developer-mode" type="checkbox">
+          <span>全解鎖元素面板</span>
+        </label>
+      </section>
+
+      <section class="status-card">
+        <p class="eyebrow">Compendium</p>
+        <h2>合成樹</h2>
+        <div class="button-stack dev-tools">
+          <button id="ingredient-tree-button" type="button">食材合成樹</button>
+          <button id="recipe-tree-button" type="button">食譜合成樹</button>
+        </div>
+      </section>
+    </aside>
+  </div>
+
+  <div id="recipe-tree-modal" class="modal-shell" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal="true"></div>
+    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="recipe-tree-title">
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow">Compendium</p>
+          <h2 id="recipe-tree-title">合成樹圖鑑</h2>
+        </div>
+        <button id="close-recipe-tree" class="icon-button" type="button" aria-label="關閉合成樹">✕</button>
+      </div>
+      <div id="recipe-tree-list" class="recipe-tree-list"></div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
